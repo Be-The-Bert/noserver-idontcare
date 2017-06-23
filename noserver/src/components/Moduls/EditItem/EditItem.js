@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 export default class EditItem extends Component {
     constructor(props){
         super(props);
-        const { name, type, price } = this.props.restaurantToEdit;
+        const copy = Object.assign({}, this.props.restaurantToEdit)
+        const { name, type, price, index } = copy;
         this.state = {
             name,
             type,
-            price
+            price,
+            index
         }
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
@@ -33,7 +35,7 @@ export default class EditItem extends Component {
                 <div>
                     <button onClick={this.props.cancelChanges}>Cancel</button>
                     <button onClick={() => this.props.deleteRestaurant(this.props.index)}>Delete</button>
-                    <button onClick={() => this.props.saveChanges(this.props.index, this.state.name, this.state.type, this.state.price)}>Save</button>
+                    <button onClick={() => this.props.saveChanges(this.state.index, this.state.name, this.state.type, this.state.price)}>Save</button>
                 </div>
             </div>
         )

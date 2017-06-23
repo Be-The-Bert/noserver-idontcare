@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { newList, editItem } from './../../ducks/actions';
+import { newList } from './../../ducks/actions';
 
 import EditItem from './../Moduls/EditItem/EditItem';
 
@@ -75,7 +75,7 @@ class MakeAList extends Component {
     }
     // EDIT MODULE CALLBACKS
     cancelChanges() {
-        this.setState(Object.assign({}, this.state, {editItem: false}))
+        this.setState(Object.assign({}, this.state, {editItem: false, restaurantToEdit: {index: 0}}))
     }
     deleteRestaurant(index) {
         let resArrayCopy = [...this.state.restaurants];
@@ -85,8 +85,11 @@ class MakeAList extends Component {
     saveChanges(index, name, type, price) {
         let updatedRestaurant = {name, type, price};
         let resArrayCopy = [...this.state.restaurants];
+        console.log(resArrayCopy);
+        console.log(updatedRestaurant);
         resArrayCopy.splice(index, 1, updatedRestaurant);
-        this.setState(Object.assign({}, this.state, {restaurants: resArrayCopy}))
+        console.log(resArrayCopy);
+        this.setState(Object.assign({}, this.state, {restaurants: resArrayCopy, editItem: false}))
     }
     render(){
         return (
@@ -142,4 +145,4 @@ function mapStateToProps(state) {
         lists: state.lists
     }
 }
-export default connect(mapStateToProps, { newList, editItem })(MakeAList);
+export default connect(mapStateToProps, { newList })(MakeAList);

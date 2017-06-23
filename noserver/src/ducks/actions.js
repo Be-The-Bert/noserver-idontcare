@@ -1,6 +1,7 @@
 const NEW_LIST = 'NEW_LIST';
 const DELETE_LIST = 'DELETE_LIST';
-const EDIT_ITEM = 'EDIT_ITEM';
+const UPDATE_LIST = 'UPDATE_LIST';
+const UPDATE_LIST_TITLE = 'UPDATE_LIST_TITLE';
 
 export function newList(title, restaurants) {
     return {
@@ -17,8 +18,23 @@ export function deleteList(id) {
         payload: id
     }
 }
-export function editItem() {
+export function updateList(updatedArray, index) {
+    
     return {
-        type: EDIT_ITEM
+        type: UPDATE_LIST,
+        payload: {
+            updatedArray: updatedArray,
+            index: index
+        }
+    }
+}
+export function updateListTitle(updatedTitle, index) {
+    console.log('action');
+    return {
+        type: UPDATE_LIST_TITLE,
+        payload: {
+            updatedTitle, 
+            index
+        }
     }
 }

@@ -1,6 +1,7 @@
 const NEW_LIST = 'NEW_LIST';
 const DELETE_LIST = 'DELETE_LIST';
-const EDIT_ITEM = 'EDIT_ITEM';
+const UPDATE_LIST = 'UPDATE_LIST';
+const UPDATE_LIST_TITLE = 'UPDATE_LIST_TITLE';
 
 const initialState = {
     lists: [
@@ -28,8 +29,7 @@ const initialState = {
             }
          ]
         }        
-    ],
-    editItem: false
+    ]
 }
 
 export default function reducer(state = initialState, action) {
@@ -41,8 +41,14 @@ export default function reducer(state = initialState, action) {
             let tempDelete = [...state.lists];
             tempDelete.splice(action.payload, 1);
             return Object.assign({}, state, {lists: tempDelete})
-        case EDIT_ITEM:
-            return Object.assign({}, state, {editItem: !state.editItem})
+        case UPDATE_LIST:
+            let listCopy = [...state.lists];
+            listCopy[action.payload.index].restaurants = action.payload.updatedArray;
+            return Object.assign({}, state, {lists: listCopy});
+        case UPDATE_LIST_TITLE:
+            let listCopy2 = [...state.lists];
+            listCopy2[action.payload.index].title = action.payload.updatedtitle;
+            return Object.assign({}, state, {lists: listCopy2});
         default: 
             return state;
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Router, BrowserRouter } from 'react-router-dom';
 
 import Lists from './Lists/Lists';
 import ListDisplay from './ListDisplay/ListDisplay';
@@ -10,10 +10,10 @@ export default class List extends Component {
             <div id='Lists'>
                 <h1>Lists</h1>
                 <BrowserRouter>
-                    <Switch>
+                    <div>
                         <Route component={ListDisplay} path='/lists/:id' />
                         <Route component={Lists} path='/' />
-                    </Switch>
+                    </div>
                 </BrowserRouter>
             </div>
         )
