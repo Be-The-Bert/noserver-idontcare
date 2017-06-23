@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { deleteList } from './../../../ducks/actions';
+
 class Lists extends Component {
     render(){
         return (
@@ -14,6 +16,7 @@ class Lists extends Component {
                                     <Link to={`/lists/${i}`}>
                                         <li>{item.title}</li>
                                     </Link>
+                                    <button onClick={(i) => this.props.deleteList(i)}>Delete</button>
                                 </div>
                         )}
                     )}
@@ -29,4 +32,4 @@ function mapStateToProps(state) {
         lists: state.lists
     }
 }
-export default connect(mapStateToProps)(Lists);
+export default connect(mapStateToProps, { deleteList })(Lists);

@@ -12,7 +12,7 @@ export default class List extends Component {
                 <BrowserRouter>
                     <Switch>
                         <Route component={ListDisplay} path='/lists/:id' />
-                        <Route component={Lists} path='/' exact />
+                        <Route component={Lists} path='/' />
                     </Switch>
                 </BrowserRouter>
             </div>

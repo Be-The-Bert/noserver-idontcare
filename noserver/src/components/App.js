@@ -8,20 +8,20 @@ import ListParent from './Lists/ListParent';
 import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Nav />
-          <About />
-          <MakeAList />
-          <ListParent />
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <div>
+        <BrowserRouter>
+          <div className="App">
+            <Nav />
+            <About />
+            <MakeAList />
+            <ListParent />
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </div>
     );
   }
 }
-
-export default App;
