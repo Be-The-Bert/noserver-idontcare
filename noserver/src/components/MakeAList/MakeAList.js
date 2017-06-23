@@ -64,7 +64,12 @@ class MakeAList extends Component {
                 titleInput: 'List Title',
                 restaurantsInput: 'Restaurant Name',
                 title: '',
-                restaurants: []
+                restaurants: [],
+                editTitle: true,
+                editItem: false,
+                restaurantToEdit: {
+                index: 0
+                }
             })
         }
     }

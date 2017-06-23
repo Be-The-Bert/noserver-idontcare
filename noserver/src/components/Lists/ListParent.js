@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Router, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import Lists from './Lists/Lists';
 import ListDisplay from './ListDisplay/ListDisplay';
