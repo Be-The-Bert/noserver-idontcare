@@ -10,7 +10,7 @@ class ListDisplay extends Component {
         super(props);
         this.state = {
             editTitle: false,
-            titleInput: this.props.lists[this.props.match.params.id].title,
+            titleInput: '',
             editItem: false,
             restaurantToEdit: {
                 index: 0
@@ -27,13 +27,14 @@ class ListDisplay extends Component {
         this.setState(Object.assign({}, this.state, {titleInput: e.target.value}))
     }
     // SAVE LIST TITLE 
-    saveTitleChanges() {
-        this.props.updateListTitle(this.state.titleInput, this.props.match.params.id);
-        this.setState(Object.assign({}, this.state, {editTitle: false, titleInput: this.props.lists[this.props.match.params.id].title}));
+    saveTitleChanges(e) {
+        e.preventDefault();
+        this.props.updateListTitle(this.state.titleInput, this.props.currentList);
+        this.setState(Object.assign({}, this.state, {editTitle: false, titleInput: ''}));
     }
     // DISPLAY EDIT MODULE
     editItem(index) {
-        let temp = Object.assign({}, this.props.lists[this.props.match.params.id].restaurants[index], {index});
+        let temp = Object.assign({}, this.props.lists[this.props.currentList].restaurants[index], {index});
         this.setState(Object.assign({}, this.state, {editItem: true, restaurantToEdit: temp}))
     }
     // EDIT MODULE CALLBACKS
@@ -41,38 +42,41 @@ class ListDisplay extends Component {
         this.setState(Object.assign({}, this.state, {editItem: false, restaurantToEdit: {index: 0}}))
     }
     deleteRestaurant(index) {
-        let resArrayCopy = [...this.props.lists[this.props.match.params.id].restaurants];
-        resArrayCopy.splice(index, 1);
-        this.setState(Object.assign({}, this.state, {restaurants: resArrayCopy, editItem: false}))
+        let resArrayCopy = this.props.lists[this.props.currentList].restaurants.slice();
+        let updatedCopy = resArrayCopy.splice(index, 1);
+        this.props.updateList(updatedCopy, this.props.currentList);
+        this.setState(Object.assign({}, this.state, {editItem: false}))
     }
     saveChanges(index, name, type, price) {
         let updatedRestaurant = {name, type, price};
-        let resArrayCopy = this.props.lists[this.props.match.params.id].restaurants.slice();
+        let resArrayCopy = this.props.lists[this.props.currentList].restaurants.slice();
         resArrayCopy.splice(index, 1, updatedRestaurant);
-        this.props.updateList(resArrayCopy, this.props.match.params.id);
+        this.props.updateList(resArrayCopy, this.props.currentList);
         // console.log(this.props.lists);
         this.setState(Object.assign({}, this.state, {editItem: false, restaurantToEdit: {index: 0}}))
     }
     render(){
-        const id = this.props.match.params.id
+        const id = this.props.currentList
         return (
             <div id='ListDisplay'>
                 
                     {this.state.editTitle 
                     ?
-                        <div>
+                        <form>
                             <input value={this.state.titleInput} onChange={this.handleTitleChange}></input>
-                            <button onClick={this.saveTitleChanges}>Save</button>
-                        </div>
+                            <button onClick={(e) => this.saveTitleChanges(e)}>Save</button>
+                        </form>
                     :   
-                        <span onClick={() => this.setState(Object.assign({}, this.state, {editTitle: true}))}>{this.state.titleInput}</span>
+                        <h4 className='listTitle' onClick={() => this.setState(Object.assign({}, this.state, {editTitle: true}))}>{this.props.lists[this.props.currentList].title}</h4>
                     }
                     {this.props.lists[id].restaurants.map( (item, i) => {
                         return ( 
-                        <div key={i}>
-                            <span>{item.name}</span>
-                            <span>{item.type}</span>
-                            <span>{item.price}</span>
+                        <div className='restaurantList' key={i}>
+                            <div className='restaurantContainer'>
+                                <h5>{item.name}</h5>
+                                <p>{item.type}</p>
+                                <p>{item.price}</p>
+                            </div>
                             <button onClick={() => this.editItem(i)}>Edit</button>
                         </div>
                         )}
@@ -92,7 +96,8 @@ class ListDisplay extends Component {
 
 function mapStateToProps(state) {
     return {
-        lists: state.lists
+        lists: state.lists,
+        currentList: state.currentList
     }
 }
 export default connect(mapStateToProps, { updateList, updateListTitle })(ListDisplay);

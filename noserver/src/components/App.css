@@ -5,7 +5,8 @@
   align-items: center;
   height: 55px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.85); }
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 2; }
 
 .Nav-links {
   text-transform: uppercase;
@@ -15,6 +16,9 @@
   font-family: "Dosis", sans-serif;
   font-size: 25px;
   color: #333333; }
+
+.Nav-links:hover {
+  border-bottom: 1px solid #333333; }
 
 #Carousel {
   width: 100%;
@@ -81,6 +85,7 @@
   min-height: 100vh;
   position: relative; }
   #MakeAList input {
+    background-color: transparent;
     border: 0.5px solid #333333;
     padding: 4px;
     margin-bottom: 7px;
@@ -89,6 +94,9 @@
     font-family: "Dosis", sans-serif;
     text-transform: uppercase;
     font-size: 20px; }
+  #MakeAList input:focus {
+    outline: none;
+    box-shadow: none; }
   #MakeAList button {
     width: 60px;
     height: 20px;
@@ -212,3 +220,151 @@
     position: absolute;
     top: 5vw;
     left: 5vw; }
+    #Lists #ListDisplay input {
+      background-color: transparent;
+      border: 0.5px solid #333333;
+      padding: 4px;
+      margin-bottom: 7px;
+      height: 24px;
+      width: 35vw;
+      font-family: "Dosis", sans-serif;
+      text-transform: uppercase;
+      font-size: 20px; }
+    #Lists #ListDisplay input:focus {
+      outline: none;
+      box-shadow: none; }
+    #Lists #ListDisplay button {
+      width: 60px;
+      height: 20px;
+      background-color: white;
+      border: none;
+      font-family: "Cutive Mono", monospace;
+      text-transform: lowercase;
+      font-size: 16px; }
+    #Lists #ListDisplay button:hover {
+      border-bottom: 1px solid #333333; }
+    #Lists #ListDisplay button:focus {
+      outline: none; }
+    #Lists #ListDisplay .listTitle {
+      height: 37px;
+      font-family: "Dosis", sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      padding-top: 2px; }
+    #Lists #ListDisplay .listTitle:hover {
+      text-shadow: .5px 0; }
+    #Lists #ListDisplay form {
+      height: 37px;
+      padding: 5px 0; }
+    #Lists #ListDisplay .restaurantList {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between; }
+      #Lists #ListDisplay .restaurantList .restaurantContainer {
+        width: 35vw;
+        display: flex; }
+        #Lists #ListDisplay .restaurantList .restaurantContainer h5 {
+          height: 24px;
+          font-family: "Dosis", sans-serif;
+          text-transform: uppercase;
+          font-size: 20px;
+          margin-right: 25px; }
+        #Lists #ListDisplay .restaurantList .restaurantContainer p {
+          float: left;
+          height: 20px;
+          font-family: "Cutive Mono", monospace;
+          text-transform: lowercase;
+          font-size: 16px;
+          margin: 3px 25px 5px 0; }
+
+#EditItem {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3; }
+  #EditItem .modulContainer {
+    background-color: rgba(167, 147, 117, 0.9);
+    padding: 25px;
+    width: 50vw;
+    position: fixed;
+    margin: 40vh 25vw 0;
+    top: 0;
+    left: 0;
+    display: flex; }
+    #EditItem .modulContainer span {
+      height: 20px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      font-family: "Cutive Mono", monospace;
+      text-transform: lowercase;
+      font-size: 16px;
+      margin-bottom: 2px; }
+    #EditItem .modulContainer span:hover {
+      border-bottom: 1px solid white; }
+    #EditItem .modulContainer .labels {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; }
+      #EditItem .modulContainer .labels p {
+        height: 31px;
+        font-family: "Cutive Mono", monospace;
+        text-transform: lowercase;
+        font-size: 24px;
+        color: white; }
+    #EditItem .modulContainer #inputs input {
+      background-color: transparent;
+      border: 0.5px solid white;
+      color: white; }
+    #EditItem .modulContainer .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end; }
+
+#Footer .backgroundContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3; }
+  #Footer .backgroundContainer .resultsModul {
+    background-color: rgba(167, 147, 117, 0.9);
+    padding: 25px;
+    min-width: 33vw;
+    position: fixed;
+    margin: 40vh 33vw 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; }
+    #Footer .backgroundContainer .resultsModul span {
+      font-family: "Cutive Mono", monospace;
+      text-transform: lowercase;
+      font-size: 24px;
+      color: white; }
+    #Footer .backgroundContainer .resultsModul h2 {
+      display: flex;
+      justify-content: center;
+      color: white;
+      font-family: "Dosis", sans-serif;
+      text-transform: uppercase;
+      font-size: 125px;
+      margin: 25px 0; }
+    #Footer .backgroundContainer .resultsModul .p2 {
+      display: flex;
+      justify-content: flex-end; }
+    #Footer .backgroundContainer .resultsModul .cancelContainer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 25px;
+      height: 25px;
+      margin: 9px; }
+      #Footer .backgroundContainer .resultsModul .cancelContainer svg {
+        fill: white; }

@@ -9,6 +9,7 @@ $hipsterMedFont: 24px;
 $pageTitleFontSize: 125px;
 $lightFontColor: white;
 $darkFontColor: #333333;
+$complimentColor: rgba(167, 147, 117, .9);
 
 
 #Nav{
@@ -19,6 +20,7 @@ $darkFontColor: #333333;
     height: 55px;
     width: 100%;
     background-color: rgba(255,255,255,.85);
+    z-index: 2;
 }
 .Nav-links {
     text-transform: $futureFontTransform;
@@ -28,6 +30,9 @@ $darkFontColor: #333333;
     font-family: $futureFontFamily;
     font-size: 25px;
     color: $darkFontColor;
+}
+.Nav-links:hover {
+    border-bottom: 1px solid $darkFontColor;
 }
 #Carousel {
     width: 100%;
@@ -102,6 +107,7 @@ $darkFontColor: #333333;
     min-height: 100vh;
     position: relative;
     input {
+        background-color: transparent;
         border: .5px solid $darkFontColor;
         padding: 4px;
         margin-bottom: 7px;
@@ -110,6 +116,10 @@ $darkFontColor: #333333;
         font-family: $futureFontFamily;
         text-transform: $futureFontTransform;
         font-size: $futureMedFont;
+    }
+    input:focus {
+        outline: none;
+        box-shadow: none;
     }
     button {
         width: 60px;
@@ -259,5 +269,186 @@ $darkFontColor: #333333;
         position: absolute;
         top: 5vw;
         left: 5vw;
+        input {
+            background-color: transparent;
+            border: .5px solid $darkFontColor;
+            padding: 4px;
+            margin-bottom: 7px;
+            height: $hipsterMedFont;
+            width: 35vw;
+            font-family: $futureFontFamily;
+            text-transform: $futureFontTransform;
+            font-size: $futureMedFont;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        button {
+            width: 60px;
+            height: $hipsterSmallFont + 4;
+            background-color: white;
+            border: none;
+            font-family: $hipsterFontFamily;
+            text-transform: $hipsterFontTransform;
+            font-size: $hipsterSmallFont;
+        }
+        button:hover {
+            border-bottom: 1px solid $darkFontColor;
+        }
+        button:focus {
+            outline: none;
+        }
+        .listTitle {
+            height: $futureLargeFont + 7;
+            font-family: $futureFontFamily;
+            text-transform: $futureFontTransform;
+            font-size: $futureLargeFont;
+            padding-top: 2px;
+        }
+        .listTitle:hover {
+            text-shadow: .5px 0;
+        }       
+        form {
+            height: $futureLargeFont + 7;
+            padding: 5px 0;
+        } 
+        .restaurantList {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            .restaurantContainer {
+                width: 35vw;
+                display: flex;
+                h5 {
+                height: $hipsterMedFont;
+                font-family: $futureFontFamily;
+                text-transform: $futureFontTransform;
+                font-size: $futureMedFont;
+                margin-right: 25px;
+                }
+                p {
+                    float: left;
+                    height: $futureMedFont;
+                    font-family: $hipsterFontFamily;
+                    text-transform: $hipsterFontTransform;
+                    font-size: $hipsterSmallFont; 
+                    margin: 3px 25px 5px 0;
+                }
+            }
+        }
+    }
+}
+
+#EditItem {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    .modulContainer {
+        background-color: $complimentColor;
+        padding: 25px;
+        width: 50vw;
+        position: fixed;
+        margin: 40vh 25vw 0;
+        top: 0;
+        left: 0;
+        display: flex;
+        span {
+            height: $hipsterSmallFont + 4;
+            background-color: transparent;
+            color: $lightFontColor;
+            border: none;
+            font-family: $hipsterFontFamily;
+            text-transform: $hipsterFontTransform;
+            font-size: $hipsterSmallFont;
+            margin-bottom: 2px;
+        }
+        span:hover {
+            border-bottom: 1px solid $lightFontColor;
+        }
+        .labels {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            p {
+                height: $hipsterMedFont + 7;
+                font-family: $hipsterFontFamily;
+                text-transform: $hipsterFontTransform;
+                font-size: $hipsterMedFont;
+                color: $lightFontColor;
+            }
+        }
+        #inputs {
+            input {
+                background-color: transparent;
+                border: .5px solid $lightFontColor;
+                color: $lightFontColor;
+            }
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
+}
+
+
+#Footer {
+    .backgroundContainer{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.25);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        .resultsModul {
+            background-color: $complimentColor;
+            padding: 25px;
+            min-width: 33vw;
+            position: fixed;
+            margin: 40vh 33vw 0;
+            top: 0;
+            left: 0; 
+            display: flex;
+            flex-direction: column;
+            span {
+                font-family: $hipsterFontFamily;
+                text-transform: $hipsterFontTransform;
+                font-size: $hipsterMedFont;
+                color: $lightFontColor;
+            }
+            h2 {
+                display: flex;
+                justify-content: center;
+                color: $lightFontColor;
+                font-family: $futureFontFamily;
+                text-transform: uppercase;
+                font-size: $pageTitleFontSize;
+                margin: 25px 0;
+            }
+            .p2 {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .cancelContainer {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: $futureLargeFont - 5;
+                height: $futureLargeFont - 5;
+                margin: 9px;
+                svg {
+                    fill: $lightFontColor;
+                }
+                
+            }
+        }
     }
 }
