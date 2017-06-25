@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 
 import registerServiceWorker from './registerServiceWorker';
 import store from './ducks/store'
-import './index.css';
+
+import './reset.css'
 
 import App from './components/App';
 

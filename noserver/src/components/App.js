@@ -7,21 +7,21 @@ import MakeAList from './MakeAList/MakeAList';
 import ListParent from './Lists/ListParent';
 import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
+import Carousel from './Carousel/Carousel';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
         <BrowserRouter>
           <div className="App">
             <Nav />
+            <Carousel />
             <About />
             <MakeAList />
             <ListParent />
             <Footer />
           </div>
         </BrowserRouter>
-      </div>
     );
   }
 }

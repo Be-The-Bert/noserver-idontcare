@@ -1,0 +1,211 @@
+$futureFontFamily: 'Dosis', sans-serif;
+$futureFontTransform: uppercase;
+$futureMedFont: 20px;
+$hipsterFontFamily: 'Cutive Mono', monospace; 
+$hipsterFontTransform: lowercase;
+$hipsterMedFont: 24px;
+$hipsterSmallFont: 16px;
+$pageTitleFontSize: 125px;
+$lightFontColor: white;
+$darkFontColor: #333333;
+
+
+#Nav{
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    background-color: rgba(255,255,255,.85);
+}
+.Nav-links {
+    text-transform: $futureFontTransform;
+    text-decoration: none;
+    display: inline;
+    padding: 0 40px;
+    font-family: $futureFontFamily;
+    font-size: 25px;
+    color: $darkFontColor;
+}
+#Carousel {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url('./../img/burger and fries.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50% 0;
+    h1 {
+        margin-top: 40vh;
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $pageTitleFontSize;
+        color: $lightFontColor;
+    }
+    .downArrow {
+        margin-bottom: 30px;
+        width: 15vh;
+        height: 15vh;
+        fill: $lightFontColor;
+    }
+}
+#About {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .contentContainer {
+        width: 100%;
+    }
+    h1 {
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $pageTitleFontSize;
+        color: $darkFontColor;
+        float: right;
+        padding-top: 5vw;
+        padding-right: 5vw;
+    }
+    .pContainer{
+        width: 50vw;
+        height: 80vh;
+        float: right;
+        display: flex;
+        align-items: center;
+    }
+    p {
+        margin-top: 10vw;
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $hipsterMedFont;
+    }
+    .arrowContainer{
+        float: clear;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .downArrow {
+        width: 15vh;
+        height: 15vh;
+        fill: $darkFontColor;
+    }
+}
+#MakeAList {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    input {
+        border: .5px solid $darkFontColor;
+        padding: 4px;
+        margin-bottom: 7px;
+        height: $hipsterMedFont;
+        width: 35vw;
+        font-family: $futureFontFamily;
+        text-transform: $futureFontTransform;
+        font-size: $futureMedFont;
+    }
+    button {
+        width: 60px;
+        height: $hipsterSmallFont + 4;
+        background-color: white;
+        border: none;
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $hipsterSmallFont;
+    }
+    button:hover {
+        border-bottom: 1px solid $darkFontColor;
+    }
+    button:focus {
+        outline: none;
+    }
+    h1 {
+        width: 100vw;
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $pageTitleFontSize;
+        color: $darkFontColor; 
+        padding: 5vw;
+    }
+    .titlesContainer {
+        width: 50vw;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        h4 {
+            height: $hipsterMedFont + 4;
+            font-family: $hipsterFontFamily;
+            text-transform: $hipsterFontTransform;
+            font-size: $hipsterMedFont;
+        }
+    }
+    .formsContainer {
+        width: 40vw;
+        float: left;
+        .titleForm {
+            display: flex;
+            justify-content: space-between;
+        }
+        .listTitle {
+            height: $hipsterMedFont + 7;
+            font-family: $futureFontFamily;
+            text-transform: $futureFontTransform;
+            font-size: $futureMedFont;
+            padding-top: 2px;
+        }
+        .listTitle:hover {
+            text-shadow: .5px 0;
+        }
+        .restaurantList {
+            display: flex;
+            justify-content: space-between;
+            h5 {
+                height: $hipsterMedFont;
+                font-family: $futureFontFamily;
+                text-transform: $futureFontTransform;
+                font-size: $futureMedFont;
+            }
+            p {
+                float: left;
+                height: $hipsterSmallFont;
+                font-family: $hipsterFontFamily;
+                text-transform: $hipsterFontTransform;
+                font-size: $hipsterSmallFont; 
+                margin: 0 25px 5px 0;
+            }
+        }
+        .restaurantForm {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .bottom {
+        clear: left;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        .saveList {
+            width: calc(50vw - 7.5vh);
+            button {
+                height: auto;
+                width: auto;
+                font-size: 45px;
+                border: 1px solid $darkFontColor;
+                margin: 7vw;
+            }
+        }
+        .downArrow {
+            width: 15vh;
+            height: 15vh;
+            fill: $darkFontColor;
+        }
+    }
+}

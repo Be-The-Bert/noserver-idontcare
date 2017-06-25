@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashLink } from 'react-router-hash-link';
 import { newList } from './../../ducks/actions';
 
 import EditItem from './../Moduls/EditItem/EditItem';
@@ -8,8 +9,8 @@ class MakeAList extends Component {
     constructor(){
         super();
         this.state = {
-            titleInput: 'List Title',
-            restaurantsInput: 'Restaurant Name',
+            titleInput: '',
+            restaurantsInput: '',
             title: '',
             restaurants: [],
             editTitle: true,
@@ -52,7 +53,7 @@ class MakeAList extends Component {
         }
         let tempArr = [...this.state.restaurants];
         tempArr.push(tempObj);
-        this.setState(Object.assign({}, this.state, {restaurantsInput: 'Restaurant Name', restaurants: tempArr}));
+        this.setState(Object.assign({}, this.state, {restaurantsInput: '', restaurants: tempArr}));
     }
     // ADD LIST TO STORE
     saveList() {
@@ -61,8 +62,8 @@ class MakeAList extends Component {
             let restaurants = this.state.restaurants;
             this.props.newList(title, restaurants);
             this.setState({
-                titleInput: 'List Title',
-                restaurantsInput: 'Restaurant Name',
+                titleInput: '',
+                restaurantsInput: '',
                 title: '',
                 restaurants: [],
                 editTitle: true,
@@ -99,39 +100,58 @@ class MakeAList extends Component {
     render(){
         return (
             <div id='MakeAList'>
-                {/*SET NEW LIST TITLE*/}
                 <h1>Make A List</h1>
-                <form>
+                <div className='titlesContainer'>
                     <h4>Title:</h4>
-                    {this.state.editTitle 
-                    ?
-                        <div>
-                            <input value={this.state.titleInput} onChange={this.handleTitleChange}></input>
-                            <button onClick={this.saveTitle}>Save</button>
-                        </div>
-                    :   
-                        <span onClick={() => this.setState(Object.assign({}, this.state, {editTitle: true}))}>{this.state.title}</span>
-                    }
-                </form>
+                    <h4>Restaurants:</h4>
+                </div>
+                <div className='formsContainer'>
+                {/*EDIT TITLE*/}
+                    <form>
+                        {this.state.editTitle 
+                        ?
+                            <div className='titleForm'>
+                                <input value={this.state.titleInput} onChange={this.handleTitleChange}></input>
+                                <button onClick={this.saveTitle}>Save</button>
+                            </div>
+                        :   
+                            <h5 className='listTitle' onClick={() => this.setState(Object.assign({}, this.state, {editTitle: true}))}>{this.state.title}</h5>
+                        }
+                    </form>
+            
                 {/*LIST OF RESTAURANTS ADDED TO NEW LIST*/}
-                <h4>Restaurants:</h4>
-                {this.state.restaurants.map((item, i) =>{
-                    return (
-                        <div key={i}>
-                            <span>{item.name}</span>
-                            <span>{item.type}</span>
-                            <span>{item.price}</span>
-                            <button onClick={() => this.editItem(i)}>Edit</button>
-                        </div> 
-                    )} 
-                )}
+                        {this.state.restaurants.map((item, i) =>{
+                            return (
+                                <div className='restaurantList'key={i}>
+                                    <div>
+                                        <h5>{item.name}</h5>
+                                        <p>{item.type}</p>
+                                        <p>{item.price}</p>
+                                    </div>
+                                    <button onClick={() => this.editItem(i)}>Edit</button>
+                                </div> 
+                            )} 
+                        )}
+                    
                 {/*ADD MORE RESTAURANTS*/}
-                <form>
+                <form className='restaurantForm'>
                     <input value={this.state.restaurantsInput} onChange={this.handleRestaurantChange}></input>
                     <button onClick={this.addRestaurant}>Add</button>
                 </form>
+               
+                </div>
                 {/*SAVE LIST TO STORE*/}
-                <button onClick={this.saveList}>Save List</button>
+                <div className='bottom'>
+                    <div className='saveList'>
+                        <button onClick={this.saveList}>Save List</button>
+                    </div>
+                    <HashLink to='/#Lists' >
+                        <svg className='downArrow' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.414 59.414" aria-labelledby="title">
+                        <title id="title">Down Arrow</title>
+                        <polygon points="29.707,45.268 0,15.561 1.414,14.146 29.707,42.439 58,14.146 59.414,15.561" />
+                        </svg>
+                    </HashLink>
+                </div>
                 {/*EDIT ITEMS MODUL*/}
                 {this.state.editItem
                 ?
@@ -139,7 +159,7 @@ class MakeAList extends Component {
                 :
                     null
                 }
-
+                
             </div>
         )
     }
