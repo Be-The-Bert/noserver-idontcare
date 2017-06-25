@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 class Footer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            answer: ''
+            answer: '',
+            toggle: false
         }
         this.choose =this.choose.bind(this);
+        this.slide =this.slide.bind(this);
     }
     choose(){
         let total = this.props.lists[this.props.currentList].restaurants.length;
@@ -17,11 +20,21 @@ class Footer extends Component {
             answer: this.props.lists[this.props.currentList].restaurants[answerIndex].name
         })
     }
+    slide(){
+        this.setState({toggle: !this.state.toggle});
+    }
     render(){
         return (
-            <div id='Footer'>
-                <h2>{this.props.lists[this.props.currentList].title}</h2>
-                <button onClick={this.choose}>Choose!</button>
+            <div id='Footer' >
+                <div className={`footerHide ${this.state.toggle ? 'footerSlide': null}`}>
+                    <h2>Current List:</h2>
+                    <h3>{this.props.lists[this.props.currentList].title}</h3>
+                    <h2>Filters:</h2>
+                    <h3>NONE</h3>
+                    <span className='detailsButton' onClick={this.slide}>Details</span>
+                    <HashLink to='/#Lists' className='editLink' onClick={this.slide}><span>Edit your lists</span></HashLink>
+                    <button onClick={this.choose}>Choose!</button>
+                </div>
                 {this.state.answer.length
                 ?
                     <div className='backgroundContainer'>

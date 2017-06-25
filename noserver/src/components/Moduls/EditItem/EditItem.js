@@ -27,6 +27,7 @@ export default class EditItem extends Component {
     render(){
         return (
             <div id='EditItem'>
+
                 <div className='modulContainer'>
                 <div className='labels'>
                     <p>Name:</p>
