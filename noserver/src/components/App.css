@@ -169,3 +169,46 @@
       width: 15vh;
       height: 15vh;
       fill: #333333; }
+
+#Lists {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative; }
+  #Lists h1 {
+    font-family: "Cutive Mono", monospace;
+    text-transform: lowercase;
+    font-size: 125px;
+    color: #333333;
+    padding-top: 5vw;
+    padding-right: 5vw; }
+  #Lists .listOfListsContainer {
+    padding-right: calc(5vw - 25px);
+    min-width: 30vw;
+    display: flex;
+    justify-content: flex-end; }
+    #Lists .listOfListsContainer .listOfLists {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; }
+      #Lists .listOfListsContainer .listOfLists .titlesContainer {
+        height: 30px;
+        margin: 5px; }
+        #Lists .listOfListsContainer .listOfLists .titlesContainer .titles {
+          text-decoration: none;
+          color: #333333;
+          font-family: "Dosis", sans-serif;
+          text-transform: uppercase;
+          font-size: 30px; }
+        #Lists .listOfListsContainer .listOfLists .titlesContainer .titles:hover {
+          border-bottom: 1px solid #333333; }
+      #Lists .listOfListsContainer .listOfLists .deleteContainer {
+        width: 25px;
+        height: 25px;
+        margin: 7.5px; }
+  #Lists #ListDisplay {
+    position: absolute;
+    top: 5vw;
+    left: 5vw; }

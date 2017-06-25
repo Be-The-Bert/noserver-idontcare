@@ -56,8 +56,8 @@ class ListDisplay extends Component {
     render(){
         const id = this.props.match.params.id
         return (
-            <div>
-                <div>
+            <div id='ListDisplay'>
+                
                     {this.state.editTitle 
                     ?
                         <div>
@@ -77,7 +77,7 @@ class ListDisplay extends Component {
                         </div>
                         )}
                     )}
-                </div>
+                   
                 {/*EDIT ITEMS MODUL*/}
                 {this.state.editItem
                 ?

@@ -1,10 +1,11 @@
 $futureFontFamily: 'Dosis', sans-serif;
 $futureFontTransform: uppercase;
 $futureMedFont: 20px;
+$futureLargeFont: 30px;
 $hipsterFontFamily: 'Cutive Mono', monospace; 
 $hipsterFontTransform: lowercase;
-$hipsterMedFont: 24px;
 $hipsterSmallFont: 16px;
+$hipsterMedFont: 24px;
 $pageTitleFontSize: 125px;
 $lightFontColor: white;
 $darkFontColor: #333333;
@@ -207,5 +208,56 @@ $darkFontColor: #333333;
             height: 15vh;
             fill: $darkFontColor;
         }
+    }
+}
+#Lists {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    h1 {
+        font-family: $hipsterFontFamily;
+        text-transform: $hipsterFontTransform;
+        font-size: $pageTitleFontSize;
+        color: $darkFontColor;
+        padding-top: 5vw;
+        padding-right: 5vw;
+    }
+    .listOfListsContainer {
+        padding-right: calc(5vw - 25px);
+        min-width: 30vw;
+        display: flex;
+        justify-content: flex-end;
+        .listOfLists {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            .titlesContainer {
+                height: $futureLargeFont;
+                margin: 5px;
+                .titles {
+                    text-decoration: none;
+                    color: $darkFontColor;
+                    font-family: $futureFontFamily;
+                    text-transform: $futureFontTransform;
+                    font-size: $futureLargeFont;
+                }
+                .titles:hover {
+                    border-bottom: 1px solid $darkFontColor;
+                }
+            }
+            .deleteContainer {
+                width: $futureLargeFont - 5;
+                height: $futureLargeFont - 5;
+                margin: 7.5px;
+            }
+        }
+    }
+    #ListDisplay{
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
     }
 }

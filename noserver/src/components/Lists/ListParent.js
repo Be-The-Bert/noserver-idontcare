@@ -8,7 +8,7 @@ export default class List extends Component {
     render(){
         return (
             <div id='Lists'>
-                <h1>Lists</h1>
+                <div className='titleContainer'><h1>Lists</h1></div>
                 <BrowserRouter>
                     <div>
                         <Route component={ListDisplay} path='/lists/:id' />
