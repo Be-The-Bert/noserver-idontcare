@@ -15,6 +15,26 @@ const initialState = {
             {name: 'chubby\'s',
             price: 2,
             type: 'american'
+            },
+            {name: 'Tommy\'s',
+            price: 1,
+            type: 'american'
+            },
+            {name: 'Red Robin',
+            price: 3,
+            type: 'american'
+            },
+            {name: 'Smashburger',
+            price: 2,
+            type: 'american'
+            },
+            {name: 'In-and-Out',
+            price: 1,
+            type: 'american'
+            },
+            {name: 'Burger Supreme',
+            price: 1,
+            type: 'american'
             }
          ]    
         },
