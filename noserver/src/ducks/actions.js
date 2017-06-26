@@ -13,10 +13,10 @@ export function newList(title, restaurants) {
         }
     }
 }
-export function deleteList(id) {
+export function deleteList(index) {
     return {
         type: DELETE_LIST,
-        payload: id
+        payload: index
     }
 }
 export function updateList(updatedArray, index) {

@@ -61,8 +61,10 @@ export default function reducer(state = initialState, action) {
             let tempCurrentIndex = tempNew.indexOf(action.payload);
             return Object.assign({}, state, {lists: tempNew, currentList: tempCurrentIndex});
         case DELETE_LIST:
-            let tempDelete = [...state.lists];
+            console.log(action.payload);
+            let tempDelete = state.lists.slice();
             tempDelete.splice(action.payload, 1);
+            console.log(tempDelete);
             return Object.assign({}, state, {lists: tempDelete, currentList: 0})
         case UPDATE_LIST:
             let listCopy = [...state.lists];
