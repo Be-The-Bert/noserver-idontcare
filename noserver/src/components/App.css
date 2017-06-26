@@ -323,15 +323,49 @@
       flex-direction: column;
       align-items: flex-end; }
       #EditItem .modulContainer .labels p {
-        height: 31px;
+        margin-top: 3px;
+        height: 38px;
         font-family: "Cutive Mono", monospace;
         text-transform: lowercase;
         font-size: 24px;
         color: white; }
     #EditItem .modulContainer #inputs input {
+      height: 34px;
       background-color: transparent;
       border: 0.5px solid white;
       color: white; }
+    #EditItem .modulContainer #inputs #typeSelector {
+      -webkit-appearance: none;
+      height: 34px;
+      width: 35vw;
+      margin: 0 0 7px 0;
+      padding: 2px;
+      background-color: rgba(167, 147, 117, 0.9);
+      color: white;
+      overflow: hidden;
+      border: 1px solid white;
+      font-family: "Dosis", sans-serif;
+      text-transform: uppercase;
+      font-size: 20px; }
+    #EditItem .modulContainer #inputs #typeSelector:focus {
+      outline: none;
+      overflow: hidden; }
+    #EditItem .modulContainer #inputs #priceSelector {
+      -webkit-appearance: none;
+      height: 34px;
+      width: 35vw;
+      margin: 0 0 7px 0;
+      padding: 2px;
+      background-color: rgba(167, 147, 117, 0.9);
+      color: white;
+      overflow: hidden;
+      border: 1px solid white;
+      font-family: "Dosis", sans-serif;
+      text-transform: uppercase;
+      font-size: 20px; }
+    #EditItem .modulContainer #inputs #priceSelector:focus {
+      outline: none;
+      overflow: hidden; }
     #EditItem .modulContainer .buttons {
       display: flex;
       flex-direction: column;
@@ -350,13 +384,37 @@
     height: 400px;
     display: flex;
     background-color: rgba(167, 147, 117, 0.9);
-    transition: all .3s ease-in-out; }
+    transition: all .4s ease-in-out; }
     #Footer .footerHide h2 {
       margin: 10px;
       font-family: "Cutive Mono", monospace;
       text-transform: lowercase;
       font-size: 32px;
       color: white; }
+    #Footer .footerHide .titleContainer {
+      height: 32px;
+      width: 45vw;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-wrap: wrap; }
+      #Footer .footerHide .titleContainer #listSelector {
+        -webkit-appearance: none;
+        height: 42px;
+        width: 200px;
+        margin: 5px;
+        padding: 5px;
+        background-color: rgba(167, 147, 117, 0.9);
+        color: white;
+        overflow: hidden;
+        border: 1px solid white;
+        font-family: "Dosis", sans-serif;
+        text-transform: uppercase;
+        font-size: 20px; }
+      #Footer .footerHide .titleContainer #listSelector:focus {
+        outline: none;
+        overflow: hidden; }
+      #Footer .footerHide .titleContainer .listOfRestaurants {
+        margin-left: 300px; }
     #Footer .footerHide h3 {
       margin: 18px 90px 0 0;
       font-family: "Dosis", sans-serif;

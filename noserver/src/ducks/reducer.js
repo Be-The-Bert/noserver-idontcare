@@ -9,31 +9,31 @@ const initialState = {
         {title: 'Burger places',
          restaurants: [
             {name: 'Five Guys',
-            price: 2,
+            price: '$$',
             type: 'american'
             },
             {name: 'chubby\'s',
-            price: 2,
+            price: '$$',
             type: 'american'
             },
             {name: 'Tommy\'s',
-            price: 1,
+            price: '$',
             type: 'american'
             },
             {name: 'Red Robin',
-            price: 3,
+            price: '$$$',
             type: 'american'
             },
             {name: 'Smashburger',
-            price: 2,
+            price: '$$',
             type: 'american'
             },
             {name: 'In-and-Out',
-            price: 1,
+            price: '$',
             type: 'american'
             },
             {name: 'Burger Supreme',
-            price: 1,
+            price: '$',
             type: 'american'
             }
          ]    
@@ -41,11 +41,11 @@ const initialState = {
         {title: 'Date Night',
         restaurants: [
             {name: 'India Palace',
-            price: 3,
+            price: '$$$',
             type: 'indian'
             },
             {name: 'Olive garden',
-            price: 3,
+            price: '$$$',
             type: 'italian'
             }
          ]

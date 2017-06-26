@@ -48,8 +48,8 @@ class MakeAList extends Component {
         let tempValue = this.state.restaurantsInput;
         let tempObj = {
             name: tempValue,
-            type: 'none',
-            price: 0,
+            type: '',
+            price: '$',
         }
         let tempArr = [...this.state.restaurants];
         tempArr.push(tempObj);

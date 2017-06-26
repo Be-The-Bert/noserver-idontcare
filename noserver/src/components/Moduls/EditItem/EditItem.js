@@ -36,8 +36,29 @@ export default class EditItem extends Component {
                 </div>
                 <div id='inputs'>
                     <input value={this.state.name} onChange={ e => this.handleNameChange(e) }></input>
-                    <input value={this.state.type} onChange={ e => this.handleTypeChange(e) }></input>
-                    <input value={this.state.price} onChange={ e => this.handlePriceChange(e) }></input>
+                    <select  id='typeSelector'onChange={ e => this.handleTypeChange(e) }>
+                        {this.state.type.length
+                        ?
+                        <option value={this.state.type}>{this.state.type}</option>
+                        :
+                        <option value={this.state.type}>none</option>
+                        }
+                        <option value=''>none</option>
+                        <option value='American'>American</option>
+                        <option value='Chinese'>Chinese</option>
+                        <option value='Greek'>Greek</option>
+                        <option value='Indian'>Indian</option>
+                        <option value='Italian'>Italian</option>
+                        <option value='Japanese'>Japanese</option>
+                        <option value='Mexican'>Mexican</option>
+                    </select>
+                    <select id='priceSelector' onChange={ e => this.handlePriceChange(e) }>
+                        <option value={this.state.price}>{this.state.price}</option>
+                        <option value='$'>$</option>
+                        <option value='$$'>$$</option>
+                        <option value='$$$'>$$$</option>
+                        <option value='$$$$'>$$$$</option>
+                    </select>
                 </div>
                 <div className='buttons'>
                     <span onClick={this.props.cancelChanges}>Cancel</span>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { changeCurrent } from './../../ducks/actions.js';
 
 class Footer extends Component {
     constructor(props) {
@@ -10,8 +11,9 @@ class Footer extends Component {
             answer: '',
             toggle: false
         }
-        this.choose =this.choose.bind(this);
-        this.slide =this.slide.bind(this);
+        this.choose = this.choose.bind(this);
+        this.slide = this.slide.bind(this);
+        this.choose = this.choose.bind(this);
     }
     choose(){
         let total = this.props.lists[this.props.currentList].restaurants.length;
@@ -23,14 +25,33 @@ class Footer extends Component {
     slide(){
         this.setState({toggle: !this.state.toggle});
     }
+    change(e) {
+        this.props.changeCurrent(e.target.value);
+    }
     render(){
         return (
             <div id='Footer' >
                 <div className={`footerHide ${this.state.toggle ? 'footerSlide': null}`}>
-                    <h2>Current List:</h2>
-                    <h3>{this.props.lists[this.props.currentList].title}</h3>
+                    <div className='titleContainer'>
+                        <h2>Current List:</h2>
+                        {this.state.toggle
+                        ?
+                            <select id='listSelector' onChange={(e) => this.change(e)}>
+                                <option value={this.props.currentList}>{this.props.lists[this.props.currentList].title}</option>
+                                {this.props.lists.map((item, i) => {
+                                    return <option key={i} value={i}>{item.title}</option>
+                                })}
+                            </select>
+                        :
+                            <h3>{this.props.lists[this.props.currentList].title}</h3>
+                        }
+                        <div className='listOfRestaurants'>
+                            {this.props.lists[this.props.currentList].restaurants.map((item, i) => <h3 key={i}>{item.name}</h3>)}
+                        </div>
+                    </div>
                     <h2>Filters:</h2>
                     <h3>NONE</h3>
+                    
                     <span className='detailsButton' onClick={this.slide}>Details</span>
                     <HashLink to='/#Lists' className='editLink' onClick={this.slide}><span>Edit your lists</span></HashLink>
                     <button onClick={this.choose}>Choose!</button>
@@ -65,4 +86,4 @@ function mapStateToProps(state) {
         currentList: state.currentList
     }
 }
-export default connect(mapStateToProps)(Footer);
+export default connect(mapStateToProps, { changeCurrent })(Footer);

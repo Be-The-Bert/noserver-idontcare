@@ -389,7 +389,8 @@ $complimentColor: rgba(167, 147, 117, .9);
             flex-direction: column;
             align-items: flex-end;
             p {
-                height: $hipsterMedFont + 7;
+                margin-top: 3px;
+                height: $futureMedFont + 18;
                 font-family: $hipsterFontFamily;
                 text-transform: $hipsterFontTransform;
                 font-size: $hipsterMedFont;
@@ -398,9 +399,46 @@ $complimentColor: rgba(167, 147, 117, .9);
         }
         #inputs {
             input {
+                height: $hipsterMedFont + 10;
                 background-color: transparent;
                 border: .5px solid $lightFontColor;
                 color: $lightFontColor;
+            }
+            #typeSelector {
+                -webkit-appearance: none;
+                height: $hipsterMedFont + 10;
+                width: 35vw;
+                margin: 0 0 7px 0;
+                padding: 2px;
+                background-color: $complimentColor;
+                color: $lightFontColor;
+                overflow: hidden;
+                border: 1px solid $lightFontColor;
+                font-family: $futureFontFamily;
+                text-transform: $futureFontTransform;
+                font-size: $futureMedFont;
+            }
+            #typeSelector:focus {
+                outline: none;
+                overflow: hidden;
+            }
+            #priceSelector {
+                -webkit-appearance: none;
+                height: $hipsterMedFont + 10;
+                width: 35vw;
+                margin: 0 0 7px 0;
+                padding: 2px;
+                background-color: $complimentColor;
+                color: $lightFontColor;
+                overflow: hidden;
+                border: 1px solid $lightFontColor;
+                font-family: $futureFontFamily;
+                text-transform: $futureFontTransform;
+                font-size: $futureMedFont;
+            }
+             #priceSelector:focus {
+                outline: none;
+                overflow: hidden;
             }
         }
         .buttons {
@@ -425,13 +463,41 @@ $complimentColor: rgba(167, 147, 117, .9);
         height: 400px;
         display: flex;
         background-color: $complimentColor;
-        transition: all .3s ease-in-out;
+        transition: all .4s ease-in-out;
         h2 {
             margin: 10px;
             font-family: $hipsterFontFamily;
             text-transform: $hipsterFontTransform;
             font-size: $hipsterLargeFont;
             color: $lightFontColor;
+        }
+        .titleContainer {
+            height: $hipsterLargeFont;
+            width: 45vw;
+            text-overflow: ellipsis;
+            display: flex;
+            flex-wrap: wrap;
+            #listSelector {
+                -webkit-appearance: none;
+                height: $hipsterLargeFont + 10;
+                width: 200px;
+                margin: 5px;
+                padding: 5px;
+                background-color: $complimentColor;
+                color: $lightFontColor;
+                overflow: hidden;
+                border: 1px solid $lightFontColor;
+                font-family: $futureFontFamily;
+                text-transform: $futureFontTransform;
+                font-size: $futureMedFont;
+            }
+            #listSelector:focus {
+                outline: none;
+                overflow: hidden;
+            }
+            .listOfRestaurants {
+                margin-left: 300px;
+            }
         }
         h3 {
             margin: 18px 90px 0 0;
