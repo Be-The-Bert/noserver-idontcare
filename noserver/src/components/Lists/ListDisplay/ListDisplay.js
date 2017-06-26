@@ -39,12 +39,12 @@ class ListDisplay extends Component {
     }
     // EDIT MODULE CALLBACKS
     cancelChanges() {
-        this.setState(Object.assign({}, this.state, {editItem: false, restaurantToEdit: {index: 0}}))
+        this.setState(Object.assign({}, this.state, {editItem: false}))
     }
     deleteRestaurant(index) {
         let resArrayCopy = this.props.lists[this.props.currentList].restaurants.slice();
-        let updatedCopy = resArrayCopy.splice(index, 1);
-        this.props.updateList(updatedCopy, this.props.currentList);
+        resArrayCopy.splice(index, 1);
+        this.props.updateList(resArrayCopy, this.props.currentList);
         this.setState(Object.assign({}, this.state, {editItem: false}))
     }
     saveChanges(index, name, type, price) {

@@ -41,7 +41,7 @@ export default class EditItem extends Component {
                 </div>
                 <div className='buttons'>
                     <span onClick={this.props.cancelChanges}>Cancel</span>
-                    <span onClick={() => this.props.deleteRestaurant(this.props.index)}>Delete</span>
+                    <span onClick={() => this.props.deleteRestaurant(this.state.index)}>Delete</span>
                     <span onClick={() => this.props.saveChanges(this.state.index, this.state.name, this.state.type, this.state.price)}>Save</span>
                 </div>
                 </div>
